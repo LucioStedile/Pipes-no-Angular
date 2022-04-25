@@ -1,0 +1,49 @@
+<h3>Tipos de Interpolação</h3>
+<!--{{pageTitle}}-->
+<div>
+    <h1 [class.textred]="textRed" [style.fontSize]="fonteSize">O meu nome é {{text}}</h1>
+    <h1>O meu nome é {{retornaNome()}}</h1>
+</div>
+
+
+<h3>Duas imagens com Interpolação</h3>
+<div>
+    <img src="http://picsum.photos/200/200">
+    <img src="{{imageUrl}}">
+</div>
+
+
+<h3>Duas imagens com property Binding</h3>
+<!--<img[src]='game.imageUrl'>-->
+<div>
+    <img [src]="imageUrl">
+    <img [src]="imageUrl" [alt]="imageDesc">
+</div>
+
+
+<h3>Event Binding</h3>
+<!--pode chamar a função dentro da imagem também-->
+<!--<button (click)='toggleImage()'>-->
+<div>
+    <img [src]="imageUrl" [alt]="imageDesc" (click)="clicou()">
+    <button (click)="clicou()">Clique</button>
+    <input #input (keyup)="clicou_2(input.value)">
+    {{input.value}}
+</div>
+<div>
+    <button [attr.aria-Label]="buttonText" [style.backgroundColor]="bgColor">{{buttonText}}</button>
+</div>
+
+<h3>Two-way dataBinding</h3>
+<!--<input[(ngModel)]='listFilter'>-->
+<div>
+    <input type="text" class="form-control" [(ngModel)]="textInput">
+    <p class="text-default">{{textInput}}</p>
+    <app-button [btnText]="'Cancelar'" [btnType]="'btn-danger'" (click)="destroiComponent()"></app-button>
+    <app-button [btnText]="'Salvar'" [btnType]="'btn-success'"></app-button>
+    <app-button [btnText]="'Click Aqui'" [btnType]="'btn-primary'" (click)="incremento()"></app-button>
+    <app-button [btnText]="'Teste'" [btnType]="'btn-secondary'" (clickFilho)="clicouNoFilho($event)"></app-button>
+</div>
+<div>
+    <app-life-cycle [number]="number" *ngIf="!destroy"></app-life-cycle>
+</div>

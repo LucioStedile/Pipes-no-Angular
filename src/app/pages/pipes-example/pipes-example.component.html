@@ -1,0 +1,55 @@
+<div class="form-group">
+    <label for="">Number</label>
+    <input type="text" [(ngModel)]="number" class="form-control" id="number">
+    <p>{{ number }}</p>
+    <label for="">Multiplo</label>
+    <input type="text" [(ngModel)]="multiplo" class="form-control" id="multiplo">
+    <button class="btn btn-success" (click)="Calcular()">Click</button>
+    <p mt-3>{{resultado}}</p>
+</div>
+
+<div class="">
+    <p>{{text}}</p>
+    <p>Slice-> {{text | slice:3:8}}</p>
+
+
+    <p>sem formatação</p>
+    <p>{{ number | number}}</p>
+
+    <p>com formatação</p>
+    <p>{{ number | number: '2.0-1':'pt'}}</p>
+
+    <p>Resultado</p>
+    <p>{{number | currency:'BRL'}}</p>
+    <p>{{number | currency:'USD'}}</p>
+
+    <p>Data de Hoje</p>
+    <p>{{date}}</p>
+    <p>{{date | date}}</p>
+    <p>{{date | date | uppercase}}</p>
+    <p>{{date | date: 'medium'}}</p>
+    <p>{{date | date: 'shortTime'}}</p>
+
+    <p>{{ text}}</p>
+
+    <p>{{pessoa | json}}</p>
+</div>
+
+<div class="container">
+    <div class="col">
+        <div class="row-6">
+            <div class="form-group">
+                <label for="text">Print Pipe Teste</label>
+                <input type="text" name="text" id="text" #nome>
+                <button class="btn btn-primary" (click)="add(nome.value)">add</button>
+            </div>
+        </div>
+        <div class="row-6">
+            <h3>Lista formatada</h3>
+            <p>Tamanho da lista{{nomes.length}}</p>
+            <ul>
+                <p>{{ nomes | printList}}</p>
+            </ul>
+        </div>
+    </div>
+</div>
